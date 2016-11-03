@@ -1,7 +1,10 @@
 module.exports = {
 	context: __dirname + "/app",
 
-	entry  : "./js/app.js",
+	entry  : {
+		javascript: "./js/app.js",
+		html: "./index.html"
+	},
 	output : {
 		filename: "app.js",
 		path    : __dirname + "/dist",
@@ -17,6 +20,10 @@ module.exports = {
 				test: /\.jsx?$/,
 				exclude: /node_modules/, 
 				loaders: ["babel-loader"]
+			},
+			{
+				test: /\.html$/,
+    		loader: "file?name=[name].[ext]",
 			}
 		]
 	}
